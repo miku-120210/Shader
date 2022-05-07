@@ -1,3 +1,6 @@
+/* ステンドグラス風のシェーダーです。
+   https://drive.google.com/file/d/1ERq2rowV6PIgm_0FBH6NU3imGvfKsi1U/view?usp=drivesdk
+   上記URLからサンプルの動画が視聴できます。 */
 Shader "Custom/stainedglass"
 {
     Properties
@@ -10,7 +13,7 @@ Shader "Custom/stainedglass"
     {
         Tags { "Queue"="Transparent" }
         LOD 200
-        Cull off //���ʕ\��
+        Cull off //裏面表示
 
         CGPROGRAM
         #pragma surface surf Standard alpha:fade
@@ -33,7 +36,7 @@ Shader "Custom/stainedglass"
         {
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;
-            //�O���[�X�P�[���ɕϊ����A0.2�����͓���
+            //グレースケールに変換し、0.2未満は透過
             o.Alpha = (c.r*0.3 + c.g*0.6 + c.b*0.1 < 0.2) ? 1 : _Alpha*0.3;
         }
         ENDCG
