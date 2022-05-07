@@ -1,8 +1,8 @@
-/* マテリアルをセピア化するシェーダーです。
-   https://drive.google.com/file/d/1UQAEPn5Hyf69FsGrGZvXLHWM8TmLEFiP/view?usp=drivesdk
+/* マテリアルをモノトーン化するシェーダーです。
+   https://drive.google.com/file/d/1sG3p7h3HPjCjmY6R2MP6t-plyPKJU7x9/view?usp=drivesdk
    上記URLからサンプルの動画が視聴できます。 */
 
-Shader "Unlit/mono_sepia"
+Shader "Unlit/monotone"
 {
     Properties{
         _MainTex("Texture", 2D) = ""{}
