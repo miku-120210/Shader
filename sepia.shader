@@ -1,11 +1,15 @@
+/* マテリアルをセピア化するシェーダーです。
+   https://drive.google.com/file/d/1UQAEPn5Hyf69FsGrGZvXLHWM8TmLEFiP/view?usp=drivesdk
+   上記URLからサンプルの動画が視聴できます。 */
+
 Shader "Unlit/sepia"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "" {}
-        // ���x
+        // –¾“x
         _Dark("Dark", Range(0, 0.2)) = 0.04
-        //�ʓx
+        //Ê“x
         _Strength("Strength", Range(0.05, 0.2)) = 0.05
         _Alpha("Alpha", Range(0.1, 3)) = 3
     }
