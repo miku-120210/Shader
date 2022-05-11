@@ -1,4 +1,7 @@
-Shader "Custom/sample4" 
+/* ãƒªãƒ ãƒ©ã‚¤ãƒˆã®ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ã§ã™ã€‚é€æ˜åº¦ã€å…‰ã®å¼·ã•ã€å…‰ã®è‰²ã‚’èª¿æ•´ã§ãã¾ã™ã€‚
+  https://drive.google.com/file/d/1d_NFgk-4B69R-6i0eXkLabdl9CKkeNM4/view?usp=drivesdk
+   ä¸Šè¨˜URLã‹ã‚‰ã‚µãƒ³ãƒ—ãƒ«ã®å‹•ç”»ãŒè¦–è´ã§ãã¾ã™ã€‚ */
+Shader "Custom/Rimlight" 
 {
     Properties
     {
@@ -13,7 +16,7 @@ Shader "Custom/sample4"
         Tags { "RenderType"="Opaque" }
         LOD 200
 
-        //— –Ê‚ğ•`Ê‚µ‚È‚¢
+        //è£é¢ã‚’æå†™ã—ãªã„
     Pass{
         ZWrite ON
         ColorMask 0
@@ -42,9 +45,9 @@ Shader "Custom/sample4"
         {
             o.Albedo = _Color1;
             o.Alpha = _Alpha;
-            //ƒxƒNƒgƒ‹‚Ì“àÏ‚©‚ç—ÖŠsü•Ó‚ğ‹‚ß‚é
+            //ãƒ™ã‚¯ãƒˆãƒ«ã®å†…ç©ã‹ã‚‰è¼ªéƒ­å‘¨è¾ºã‚’æ±‚ã‚ã‚‹
             float rim = 1 - (abs(dot(IN.viewDir, IN.worldNormal)));
-            //ã‚Å‹‚ß‚½rim‚ğ3æ‚µAŒõ‚ğ—ÖŠs‚ÉW’†‚³‚¹‚éB‘¾–Ú‚Ì—ÖŠs‚É‚µ‚½‚¢ê‡Œã‚ë‚ÌƒRƒƒ“ƒg‚ğ“ü‚ê‚é
+            //ä¸Šã§æ±‚ã‚ãŸrimã‚’3ä¹—ã—ã€å…‰ã‚’è¼ªéƒ­ã«é›†ä¸­ã•ã›ã‚‹ã€‚å¤ªç›®ã®è¼ªéƒ­ã«ã—ãŸã„å ´åˆå¾Œã‚ã®ã‚³ãƒ¡ãƒ³ãƒˆã‚’å…¥ã‚Œã‚‹
             o.Emission = _Color2 * pow(rim, _Rim); // *_Rim / 2;
         }
         ENDCG
